@@ -4,10 +4,12 @@ export const formSlice = createSlice({
   name: "form",
   initialState: {
     step: 1,
-    name: "",
-    surname: "",
-    email: "",
-    phone: "",
+    forms: {
+      name: "",
+      surname: "",
+      email: "",
+      phone: "",
+    },
   },
   reducers: {
     nextStep: (state) => {
@@ -17,16 +19,16 @@ export const formSlice = createSlice({
       state.step -= 1;
     },
     setName: (state, action) => {
-      state.name = action.payload;
+      state.forms.name = action.payload;
     },
     setSurname: (state, action) => {
-      state.surname = action.payload;
+      state.forms.surname = action.payload;
     },
     setEmail: (state, action) => {
-      state.email = action.payload;
+      state.forms.email = action.payload;
     },
     setPhone: (state, action) => {
-      state.phone = action.payload;
+      state.forms.phone = action.payload;
     },
   },
 });
