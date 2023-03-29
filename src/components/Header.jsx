@@ -2,6 +2,7 @@ import React from "react";
 import Form from "./Form/Form";
 import { useDispatch, useSelector } from "react-redux";
 import { prevStep, nextStep } from "../redux/slices/formSlice";
+import StepBar from "./StepBar";
 
 const Header = () => {
   const dispatch = useDispatch();
@@ -15,6 +16,7 @@ const Header = () => {
   };
   return (
     <>
+      <StepBar />
       <div className="tabs">
         <button
           type="button"

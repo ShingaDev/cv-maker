@@ -1,37 +1,37 @@
-function calculateCompletionPercentage(
-  name,
-  surname,
-  email,
-  phone,
-  formInputCount
-) {
+import { useSelector } from "react-redux";
+import { formInputCount } from "../../redux/slices/formSlice";
+function CalculateCompletionPercentage() {
+  const { reqForms } = useSelector(
+    (state) => state.form
+  );
+  const reqInputCount = useSelector(formInputCount);
   let completedSteps = 0;
 
-  if (name) {
+  if (reqForms.name) {
     completedSteps++;
   }
 
-  if (surname) {
+  if (reqForms.surname) {
     completedSteps++;
   }
 
-  if (email) {
+  if (reqForms.email) {
     completedSteps++;
   }
 
-  if (phone) {
+  if (reqForms.phone) {
     completedSteps++;
   }
 
   let completionPercentage = 0;
 
-  if (completedSteps === formInputCount) {
+  if (completedSteps === reqInputCount) {
     completionPercentage = 100;
   } else {
-    completionPercentage = (completedSteps / formInputCount) * 100;
+    completionPercentage = (completedSteps / reqInputCount) * 100;
   }
 
   return completionPercentage.toFixed(2);
 }
 
-export default calculateCompletionPercentage
+export default CalculateCompletionPercentage;
